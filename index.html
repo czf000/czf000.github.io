@@ -1,205 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>贪吃蛇</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/mybootstrap.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>图灵机器人</title>
 </head>
+
 <body>
-	<canvas id="canvas">你的浏览器不支持canvas</canvas>
-
-	<button id="bth1" onclick="playgame(1)">开始游戏</button>
-	<button id="bth2" onclick="playgame(0)">重置游戏</button>
-
-	<h2>按s键开始游戏/游戏加速</h2>
-	<h4>得分:<span id="number">0</span></h4>
-
-	<script type="text/javascript">
-		var canvas = document.getElementById('canvas');
-		var btn1 = document.getElementById('bth1');
-		var btn2 = document.getElementById('bth2');
-		var number = document.getElementById('number');
-		canvas.width = 400;
-		canvas.height = 400;
-		canvas.style.border = "2px solid #ddd";
-
-		var map=[];
-		// 记录蛇的运动路径
-		var x=y=8;
-
-		// 记录一个食物坐标;
-		var a=b =0;
-		// 蛇身单位大小
-		var size = 8;
-		// 定义一个蛇身长度
-		var len = 10;
-		// 初始化,蛇身方向向右边
-		var code=2;
-
-		var ctx = canvas.getContext('2d');
-		var play;
-		var plays;
-		
-		// 开关
-		var toggle = true;
-		var flag = true;
-
-		var s =false;
-
-
-			document.onkeydown = function(e){
-			var key = e.keyCode - 37;
-			console.log(key);
-			// 方向不是向右 才能按左键盘
-			if (key == 0&&code != 2) {
-				code = key;
-			}else if(key == 1 && code !=3){
-				code = key;
-			}else if (key == 2 && code != 0){
-				code = key;
-			}else if(key == 3 && code!=1){
-				code = key;
-			}else if(s && key == 46){
-				clearInterval(play);
-				plays= setInterval(setGame,30);
-				// play = setInterval(setGame,100)
-				s=false;
-			}
-
-		}
-		// 加速逻辑
-		document.onkeyup = function(e){
-			
-			var key = e.keyCode - 37;
-			if(key == 46){
-				s=true;
-				clearInterval(plays);
-				if (flag) {
-					rand();
-				}
-				flag=false;
-				play = setInterval(setGame,100);
-			}
-				btn1.innerHTML="暂停游戏";
-				toggle = false;
-		}
-		// 游戏开始和暂停控制
-		function playgame(i){
-			if (flag) {
-				rand();
-			}
-			flag=false;
-			if (i && toggle) {
-				// rand();
-				toggle = false;
-				s=true;
-				play= setInterval(setGame,100)
-				btn1.innerHTML="暂停游戏";
-
-			}else if(!toggle && i!=0){
-				btn1.innerHTML="开始游戏";
-				toggle= true;
-				clearInterval(play);
-
-		
-				// ctx.clearRect(a,b,size,size);
-			}
-			// 重置游戏
-			else if(i == 0){
-				toggle = true;
-				flag = true;
-				len = 10;
-				code=2;
-				map=[];
-				x=y=8;
-				clearInterval(play);
-				ctx.clearRect(0,0,400,400);
-				flag=true;
-				s=true;
-				btn1.innerHTML="开始游戏";
-				number.innerHTML="0";
-
-			}
-			
-		}
-		// 计时器
-		
-
-		// 蛇身运动
-		function setGame(){
-		// 循环
-			switch(code){
-				// 左
-				case 0:x-=size;break;
-				// 上
-				case 1:y-=size;break;
-				// 右
-				case 2:x+=size;break;
-				// 下
-				case 3:y+=size;break;
-			}	
-			
-			ctx.fillStyle='#069';
-			ctx.strokeStyle='#069';
-			ctx.fillRect(x,y,size,size);
-
-			// 把蛇身的位置存储到数组中,记录蛇身每一个矩形x,y轴位置
-			map.push({'x':x,'y':y});
-
-			if(map.length>len){
-				// 如果超出蛇身长度，删除数组的第一项
-				var del = map.shift();//删除数组第一项，并且返回值
-			
-				ctx.clearRect(del.x,del.y,size,size);
-			}
-
-
-			// 吃食物判断
-			if(a == x && b == y){
-				len++;
-				
-				rand();
-				number.innerHTML=len-10;
-			}
-
-				// 遍历整个蛇身的坐标
-			for(var i = 0 ; i<map.length-1 ; i++){
-				// 只要有一个坐标等于头部，即为触碰到自己
-				if (map[i].x == x && map[i].y == y) {
-					alert('碰撞到自己。。');
-					window.location.reload();
-				}
-				// 判断随机生成的食物是否在自己身上
-				if(map[i].x == a && map[i].y == b){
-					rand();
-				}
-			}
-
-			if (x>400-size || x<0 ||y>400-size ||y<0) {
-				alert('碰撞到墙壁。。');
-				window.location.reload();
-			}
-
-		}
-
-		// 通过键盘事件控制蛇的运行方向
-		/*
-			方向键(←)： VK_LEFT (37)
-			方向键(↑)： VK_UP (38)
-			方向键(→)： VK_RIGHT (39)
-			方向键(↓)： VK_DOWN (40)
-		*/
-		
-
-
-
-		// 投放食物
-		function rand(){
-			a = Math.ceil(Math.random()*49)*8;
-			b = Math.ceil(Math.random()*49)*8;
-			ctx.fillStyle="#000";
-			ctx.fillRect(a,b,size,size);
-		}
-
-	</script>
+    <!-- nav -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#daota" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><i>粤嵌</i></a>
+            </div>
+            <div class="navbar-collapse collapse" id="daota" aria-expanded="false" style="height: 1px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active" data-toggle="modal" data-target="#my"><a href="#">团队 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">动态</a></li>
+                    <li><a href="#">就业</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">粤嵌官网</a></li>
+                            <li data-toggle="modal" data-target="#wechat"><a href="#">官方微信：gzyueqian</a></li>
+                            <li data-toggle="modal" data-target="#phone"><a href="#">客服电话： 18027402300</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">证券代码 839909</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+    <!-- body -->
+    <!-- 左边的 消息 -->
+    <div class="media">
+        <div class="media-left">
+            <a href=javascript:;" data-toggle="popover" data-placement="right" data-content="你好，我是星期五，请问有什么可以帮您？">
+                <img class="media-object" src="images/a_icon.png" alt="" style="width: 50px">
+            </a>
+        </div>
+    </div>
+    <!-- 右边的消息 -->
+    <!--     <div class="media">
+        <div class="media-body"></div>
+        <div class="media-right">
+            <a href="javascript:;" data-toggle="popover" data-placement="left" data-content="左侧的 Popover 中的一些内容">
+                <img class="media-object" src="images/a_icon.png" data-holder-rendered="true" style="width: 50px; height: 50px;">
+            </a>
+        </div>
+    </div> -->
+    <!-- END body -->
+    <!-- footer -->
+    <nav class="navbar navbar-default navbar-fixed-bottom" style="display: flex;justify-content:space-between; align-items: center;">
+        <span class="btn btn-md" style="width: 50px;"><img class="img-responsive" src="images/语音.png" style="max-width: 150%"></span>
+        <input type="text" class="form-control" placeholder="" value="">
+        <button type="submit" class="btn btn-default btn-md">发送</button>
+    </nav>
+    <!-- END footer -->
+    <!-- wechat Modal -->
+    <div class="modal fade" id="wechat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">官方微信</h4>
+                </div>
+                <div class="modal-body" style="display: flex;justify-content: center;">
+                    <img src="./images/eqcode.png">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Finish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END wechat -->
+    <!-- phone Modal -->
+    <div class="modal fade" id="phone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">客服电话</h4>
+                </div>
+                <div class="modal-body" style="display: flex;justify-content: center;">
+                    <h3>18027402300</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Call</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END phone -->
+    <!-- my Modal -->
+    <div class="modal fade" id="my" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">庄展汾·JansChong</h4>
+                </div>
+                <div class="modal-body" style="display: flex;justify-content: center;">
+                    自己写的，惊不惊喜
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">升职</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">加薪</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END my -->
+<!-- !null Modal -->
+    <div class="modal fade" id="null" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">庄展汾·JansChong</h4>
+                </div>
+                <div class="modal-body" style="display: flex;justify-content: center;">
+                    自己写的，惊不惊喜
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">升职</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">加薪</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END !null -->
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/info.js"></script>
+    <script type="text/javascript" src="js/mybootstrap.js"></script>
 </body>
+
 </html>
