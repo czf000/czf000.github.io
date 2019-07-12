@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/mybootstrap.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>图灵机器人</title>
+</head>
+
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#daota" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><i>粤嵌</i></a>
+            </div>
+            <div class="navbar-collapse collapse" id="daota" aria-expanded="false" style="height: 1px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active" data-toggle="modal" data-target="#my"><a href="#">团队 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">动态</a></li>
+                    <li><a href="#">就业</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">粤嵌官网</a></li>
+                            <li data-toggle="modal" data-target="#wechat"><a href="#">官方微信：gzyueqian</a></li>
+                            <li data-toggle="modal" data-target="#phone"><a href="#">客服电话： 18027402300</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">证券代码 839909</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+    <!-- body -->
+    <!-- 左边的 消息 -->
+    <div class="media">
+        <div class="media-left">
+            <a href=javascript:;" data-toggle="popover" data-placement="right" data-content="你好，我是星期五，请问有什么可以帮您？">
+                <img class="media-object" src="images/a_icon.png" alt="" style="width: 50px">
+            </a>
+        </div>
+    </div>
+    <!-- 右边的消息 -->
+    <!--     <div class="media">
+        <div class="media-body"></div>
+        <div class="media-right">
+            <a href="javascript:;" data-toggle="popover" data-placement="left" data-content="左侧的 Popover 中的一些内容">
+                <img class="media-object" src="images/a_icon.png" data-holder-rendered="true" style="width: 50px; height: 50px;">
+            </a>
+        </div>
+    </div> -->
+    <!-- END body -->
+    <!-- footer -->
+    <nav class="navbar navbar-default navbar-fixed-bottom" style="display: flex;justify-content:space-between; align-items: center;">
+        <span class="btn btn-md" style="width: 50px;"><img class="img-responsive" src="images/语音.png" style="max-width: 150%"></span>
+        <input type="text" class="form-control" placeholder="" value="">
+        <button type="submit" class="btn btn-default btn-md">发送</button>
+    </nav>
+    <!-- END footer -->
+    <!-- wechat Modal -->
+    <div class="modal fade" id="wechat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">官方微信</h4>
+                </div>
+                <div class="modal-body" style="display: flex;justify-content: center;">
+                    <img src="./images/eqcode.png">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Finish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END wechat -->
+    <!-- phone Modal -->
+    <div class="modal fade" id="phone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">客服电话</h4>
+                </div>
+                <div class="modal-body" style="display: flex;justify-content: center;">
+                    <h3>18027402300</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Call</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END phone -->
+    <!-- my Modal -->
+    <div class="modal fade" id="my" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">庄展汾·JansChong</h4>
+                </div>
+                <div class="modal-body" style="display: flex;justify-content: center;">
+                    自己写的，惊不惊喜
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">升职</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">加薪</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END my -->
+<!-- !null Modal -->
+    <div class="modal fade" id="null" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">庄展汾·JansChong</h4>
+                </div>
+                <div class="modal-body" style="display: flex;justify-content: center;">
+                    自己写的，惊不惊喜
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">升职</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">加薪</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END !null -->
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/info.js"></script>
+    <script type="text/javascript" src="js/mybootstrap.js"></script>
+</body>
+
+</html>
