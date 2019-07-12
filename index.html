@@ -1,158 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="./css/mybootstrap.css">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <title>图灵机器人</title>
+	<meta charset="UTF-8">
+	<title>Document</title>
 </head>
-
 <body>
-    <!-- nav -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#daota" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><i>粤嵌</i></a>
-            </div>
-            <div class="navbar-collapse collapse" id="daota" aria-expanded="false" style="height: 1px;">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active" data-toggle="modal" data-target="#my"><a href="#">团队 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">动态</a></li>
-                    <li><a href="#">就业</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">粤嵌官网</a></li>
-                            <li data-toggle="modal" data-target="#wechat"><a href="#">官方微信：gzyueqian</a></li>
-                            <li data-toggle="modal" data-target="#phone"><a href="#">客服电话： 18027402300</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">证券代码 839909</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- END nav -->
-    <!-- body -->
-    <!-- 左边的 消息 -->
-    <div class="media">
-        <div class="media-left">
-            <a href=javascript:;" data-toggle="popover" data-placement="right" data-content="你好，我是星期五，请问有什么可以帮您？">
-                <img class="media-object" src="images/a_icon.png" alt="" style="width: 50px">
-            </a>
-        </div>
-    </div>
-    <!-- 右边的消息 -->
-    <!--     <div class="media">
-        <div class="media-body"></div>
-        <div class="media-right">
-            <a href="javascript:;" data-toggle="popover" data-placement="left" data-content="左侧的 Popover 中的一些内容">
-                <img class="media-object" src="images/a_icon.png" data-holder-rendered="true" style="width: 50px; height: 50px;">
-            </a>
-        </div>
-    </div> -->
-    <!-- END body -->
-    <!-- footer -->
-    <nav class="navbar navbar-default navbar-fixed-bottom" style="display: flex;justify-content:space-between; align-items: center;">
-        <span class="btn btn-md" style="width: 50px;"><img class="img-responsive" src="images/语音.png" style="max-width: 150%"></span>
-        <input type="text" class="form-control" placeholder="" value="">
-        <button type="submit" class="btn btn-default btn-md">发送</button>
-    </nav>
-    <!-- END footer -->
-    <!-- wechat Modal -->
-    <div class="modal fade" id="wechat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">官方微信</h4>
-                </div>
-                <div class="modal-body" style="display: flex;justify-content: center;">
-                    <img src="./images/eqcode.png">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Finish</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END wechat -->
-    <!-- phone Modal -->
-    <div class="modal fade" id="phone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">客服电话</h4>
-                </div>
-                <div class="modal-body" style="display: flex;justify-content: center;">
-                    <h3>18027402300</h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Call</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END phone -->
-    <!-- my Modal -->
-    <div class="modal fade" id="my" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">庄展汾·JansChong</h4>
-                </div>
-                <div class="modal-body" style="display: flex;justify-content: center;">
-                    自己写的，惊不惊喜
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">升职</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">加薪</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END my -->
-<!-- !null Modal -->
-    <div class="modal fade" id="null" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">庄展汾·JansChong</h4>
-                </div>
-                <div class="modal-body" style="display: flex;justify-content: center;">
-                    自己写的，惊不惊喜
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">升职</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">加薪</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END !null -->
-    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/info.js"></script>
-    <script type="text/javascript" src="js/mybootstrap.js"></script>
-</body>
+	<style>
+        *{margin: 0;
+            padding:0;}
+        #main{margin: 0px auto;position: relative;}
+        #main div{overflow: hidden;position: absolute;width:  200px;height: 200px;opacity: 0.5;
+            -moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%;}
+        #main>span{
+            width: 300px;
+            height: 66px;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin:auto auto;
+            font-size: 50px;
+            color:#fff;
+        }
+    </style>
 
+
+<div id="main" style="background-color: #000; position: relative;">
+    <span>Jans·Chong</span>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script>
+        var main = document.getElementById('main');
+        var circles = main.getElementsByTagName('div');
+        var st = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+        var json = [],arr=[],color = [];
+        var maxW = 0;
+        var maxH = 0;
+        var cwidth = circles[0].offsetWidth;
+        var cheight = circles[0].offsetHeight;
+
+        //根据浏览器窗口的大小自动调节小球的运动空间
+        window.onresize=function(){
+            var main = document.getElementById('main');
+            maxW=window.innerWidth-circles[0].clientWidth;
+            maxH=window.innerHeight-circles[0].clientHeight;
+            main.style.width = window.innerWidth+'px';
+            main.style.height = window.innerHeight+'px';
+
+        }
+        onresize();
+        //数组对象的初始化
+        for(var i=0;i<circles.length;i++){
+            arr=[];
+            for(var j=0;j<6;j++){
+                color[j] = st[Math.floor(Math.random()*16)];
+            }
+            arr.x = Math.floor(Math.random()*(maxW+1));//初始x坐标
+            arr.y = Math.floor(Math.random()*(maxH+1));//初始y坐标
+            arr.cx = arr.x + circles[0].offsetWidth/2;//圆心x坐标
+            arr.cy = arr.y + circles[0].offsetHeight/2;//圆心y坐标
+            arr.movex = Math.floor(Math.random()*2);//x轴移动方向
+            arr.movey = Math.floor(Math.random()*2);//y轴移动方向
+            arr.bgolor = '#'+ color.join('');//随机生成一个6位字符串
+            arr.speed = 2+Math.floor(Math.random()*5);
+            //随机生成一个2~6之间的移动速度（如果设置的改变速度太大，容易造成小球碰撞时两个小球之间有重合，也有可能小球会出界）
+            arr.timer = null;//计时器
+            arr.index = i;//索引值
+            json.push(arr);
+            circles[i].style.left = arr.x + 'px';//小球位置初始化
+            circles[i].style.top = arr.y + 'px';//小球位置初始化
+            circles[i].style.backgroundColor = arr.bgolor;//小球背景颜色初始化
+        }
+        //碰撞函数
+        function crash(a){
+            var ball1x = json[a].cx;
+            var ball1y = json[a].cy;
+            for(var i= 0;i<json.length;i++){
+                if(i!=a){
+                    var ball2x = json[i].cx;
+                    var ball2y = json[i].cy;
+                    //圆心距离的平方
+                    var len = (ball1x-ball2x)*(ball1x-ball2x)+(ball1y-ball2y)*(ball1y-ball2y);
+                    if(len <= cwidth*cwidth){
+                    //小球位置的判断，发生碰撞反应
+                        if(ball1x >ball2x){
+                            if(ball1y > ball2y){
+                                json[a].movex=1;
+                                json[a].movey=1;
+                            }else if(ball1y < ball2y){
+                                json[a].movex=1;
+                                json[a].movey=0;
+                            }else{
+                                json[a].movex=1;
+                            }
+                        }else if(ball1x < ball2x){
+                            if(ball1y > ball2y){
+                                json[a].movex=0;
+                                json[a].movey=0;
+                            }else if(ball1y < ball2y){
+                                json[a].movex=0;
+                                json[a].movey=1;
+                            }else{
+                                json[a].movex=0;
+                            }
+                        }else{
+                            if(ball1y > ball2y){
+                                json[a].movey=1;
+                            }else if(ball1y < ball2y){
+                                json[a].movey=0;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+        //移动函数
+        function move(circle){
+            circle.timer = setInterval(function () {
+                if(circle.movex == 1){
+                    circle.x+=circle.speed;
+                    if(circle.x+circle.speed >= maxW){//防止小球出界
+                        circle.x = maxW;
+                        circle.movex=0;//小球运动方向发生改变
+                    }
+                }else{
+                    circle.x-=circle.speed;
+                    if(circle.x-circle.speed <= 0){
+                        circle.x = 0;
+                        circle.movex=1;
+                    }
+                }
+                if(circle.movey == 1){
+                    circle.y += circle.speed;
+                    if(circle.y+circle.speed >= maxH){
+                        circle.y = maxH;
+                        circle.movey=0;
+                    }
+                }else{
+                    circle.y-=circle.speed;
+                    if(circle.y-circle.speed <= 0){
+                        circle.y = 0;
+                        circle.movey=1;
+                    }
+                }
+                circle.cx = circle.x + circles[0].offsetWidth/2;//小球每一次运动圆心都会发生改变
+                circle.cy = circle.y + circles[0].offsetHeight/2;
+                circles[circle.index].style.left = circle.x + 'px';//小球位置重定位
+                circles[circle.index].style.top = circle.y + 'px';
+                /*console.log('x'+circle.cx+'y'+circle.cy);*/
+                crash(circle.index);
+            },15);
+        }
+        //对每一个小球绑定计时器，让小球动起来
+        for(var i=0;i<circles.length;i++){
+            move(json[i]);
+        }
+    </script>
+</body>
 </html>

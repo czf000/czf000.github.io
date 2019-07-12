@@ -1,7 +1,0 @@
-/*使用固定导航条，需要预留出位置*/
-body{
-	padding: 50px 0;
-}
-.popover{
-	z-index: 1!important;
-}
